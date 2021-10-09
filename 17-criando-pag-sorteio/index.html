@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página de sorteio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <label for="numero">Escolha um numero<br>
+        <input type="number" name="numero" id="numero">
+    </label>
+
+    <h1 id="d"></h1>
+
+    <button onclick="sortear()" id="button">Sortear</button>
+    
+    <h1 id="mensagem"></h1>
+    <script>
+
+        var nEscolhido = document.querySelector("#numero");
+        
+        document.querySelector("#button").disabled = true;
+
+        document.querySelector("#numero").addEventListener("input", inputDisabledFalse);
+
+
+        function sortear() {
+            var numeroSorteio = 10;
+            
+            novoEscolhido = parseInt(nEscolhido.value);
+
+            var nSorteado = Math.round(Math.random() * numeroSorteio);
+            console.log(nSorteado);
+
+            document.querySelector("#d").innerHTML = nSorteado;
+            
+            resultado(nSorteado, novoEscolhido);
+        }
+
+        function inputDisabledFalse () {
+            let conteudo = document.querySelector("#numero").value;
+
+            if (conteudo.value !== null && conteudo.value !== "") {
+                document.querySelector("#button").disabled = false;
+            }
+        }
+
+        function limpa (nEscolhido) {
+
+            numero.value = "";
+            document.querySelector("#button").disabled = true;
+            }
+
+        function resultado (nSorteado, nEscolhido) {
+
+            var mensagem = document.querySelector("#mensagem");
+                
+                if (nSorteado == nEscolhido) {
+                        mensagem.innerHTML = "Você GANHOU!!!";
+                } else {
+                    mensagem.innerHTML = "Você PERDEUU!!!";
+            }
+            limpa(nEscolhido);
+        }    
+
+    </script>
+    <script src='script.js'></script>
+</body>
+
+</html>

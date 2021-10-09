@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Acessando elementos HTML com JS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <main id="main">
+        <h1>To do list</h1>
+        <div class="write">
+            <input type="text" id="input" placeholder="Escreva aqui" maxlength="20">
+            <button onclick="buttonCreateList()" id="add"><i data-feather="plus"></i> </button>
+            <button onclick="buttonRemoveList()" id="remove" class="remove"><i data-feather="trash"></i> </button>
+        </div>
+        <!-- <ul class="list-lessons">
+            <li class="lessons">
+                <span class="text">tarefa 1</span>
+                <div>
+                    <button class="ok"><i data-feather="check"></i></button>
+                    <button class="remove"><i data-feather="x"></i></button>
+                </div>
+            </li>
+        </ul> -->
+    </main>
+    <script>
+        feather.replace()
+      </script>
+    <script src='script.js'></script>
+    
+</body>
+</html>

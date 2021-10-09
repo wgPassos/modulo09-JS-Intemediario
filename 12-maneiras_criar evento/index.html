@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Maneiras de cria EVEntos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    <h1 onclick="f()">Title</h1>
+
+    <script>
+        function f() {
+            console.log("teste");
+        }
+
+        function f1() {
+            console.log("teste 1")
+        }
+
+        window.onload = function () {
+            let h1 = document.querySelector("h1");
+            h1.addEventListener("click", f1);
+        }
+
+    </script>
+
+</body>
+</html>

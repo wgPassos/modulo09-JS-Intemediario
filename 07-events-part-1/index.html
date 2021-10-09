@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos - Parte 1 (DOM Events)</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function h1click() {
+            console.log("executando a função");
+        }
+
+        function changeh1() {
+            let input = document.getElementById("texto");
+            let h1 = document.getElementsByTagName("h1")[0];
+            h1.innerHTML = input.value;
+        }
+    
+        function change2() {
+            let input 
+        }
+
+    </script>
+</head>
+<body>
+    <h1 onclick="h1click()">Clique em mim</h1>
+    <h2 onclick="this.style.color = 'red'">Clique em mim 2</h2>
+    <!-- O this nesse caso é o próprio h1 -->
+    <h1>Clique aqui | onchange</h1>
+
+    <input id="texto" type="text" onchange="changeh1()">
+    <!-- OU  sem precisar de id -- 
+        apenas usando o THIS -->
+    <input type="text" onchange="change2()">
+    
+    <!-- <script src='script.js'></script> -->
+
+</body>
+</html>
