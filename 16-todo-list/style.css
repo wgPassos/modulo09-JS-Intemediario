@@ -41,7 +41,7 @@ main {
     border-radius: .5rem;
 }
 
-ul {
+ul, list-lessons {
     width: 70%;
     display: flex;
     flex-direction: column;

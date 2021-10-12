@@ -53,8 +53,9 @@ function criarLi(listaDeTarefas) {
     console.log(listaDeTarefas[0].conteudo);
     ul.innerHTML = "";
     for (var i = 0; i < listaDeTarefas.length; i++) {
-        ul.innerHTML += `<li> ${listaDeTarefas[i].conteudo} </li>`;
-        
+        ul.innerHTML += `<li class="lessons"> ${listaDeTarefas[i].conteudo}<button><i data-feather="check">C</i></button> <button>X</button></li>`;
+
+   
         if (listaDeTarefas[i].conteudo === true) {
             li.classList.toggle("task-done");
         }
