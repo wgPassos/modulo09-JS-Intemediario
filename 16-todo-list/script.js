@@ -42,34 +42,40 @@ function buttonCreateList() {
 }
 
 
-
-// let container = document.getElementById("main")
-// container.innerHTML += "<ul></ul>";
 let ul = document.getElementById("ul");
-
-
 
 function criarLi(listaDeTarefas) {
     console.log(listaDeTarefas[0].conteudo);
     ul.innerHTML = "";
     for (var i = 0; i < listaDeTarefas.length; i++) {
-        ul.innerHTML += `<li class="lessons"> ${listaDeTarefas[i].conteudo}<button><i data-feather="check">C</i></button> <button>X</button></li>`;
+        ul.innerHTML += `<li class="lessons"> ${listaDeTarefas[i].conteudo}<button class="btn-ok" onclick="tarefaFeita(this)">C</i></button> <button class="btn-excluir" onclick="tarefaExclui(this)">X</button></li>`;
 
-   
-        if (listaDeTarefas[i].conteudo === true) {
-            li.classList.toggle("task-done");
-        }
-
-    buttonLimpar.classList.remove("remove");
+        buttonLimpar.classList.remove("removeAllList");
+    
+        console.log(listaDeTarefas);
     }
-    localStorage.setItem("lista_tarefas", JSON.stringify(listaDeTarefas));
-    console.log(listaDeTarefas);
+    
 }
 
 function buttonRemoveList() {
+    localStorage.clear()
     ul.innerHTML = "";
-    }
-    
+    listaDeTarefas = [];
+}
+
+function tarefaFeita(e) {
+    console.log(e.parentElement);
+    let li = e.parentElement;
+    li.classList.toggle("task-done");
+    localStorage.setItem("lista_tarefas")
+}
+
+function tarefaExclui(e) {
+    let li = e.parentElement;
+    ul.removeChild(li);
+    localStorage.getItem("lista_tarefas")
+    criarLi();
+}
 
 // console.log(listaDeTarefas);
     // container += "<li>" + input.value + "</li>"
