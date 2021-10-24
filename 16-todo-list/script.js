@@ -7,14 +7,13 @@ let listaDeTarefas = [];
 let ul = document.getElementById("ul");
 
 onload = function () {
-    let nome = localStorage.getItem("lista_tarefas");
+    let local_storage = localStorage.getItem("lista_tarefas");
     // console.log(JSON.parse(nome[0]));
     console.log(nome );
-    if (nome === null) {}
-    else {
-        listaDeTarefas.innerHTML = JSON.parse(nome);
-        criarLi();
+    if (local_storage) {
+        listaDeTarefas = JSON.parse(local_storage);
     }
+
 }
 
 
