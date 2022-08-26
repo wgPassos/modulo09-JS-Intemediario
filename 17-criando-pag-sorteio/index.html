@@ -9,11 +9,20 @@
 </head>
 
 <body>
-    <label for="numero">Escolha um numero<br>
-        <input type="number" name="numero" id="numero">
+    <label for="vol">Até que número será o sorteio?
+        <br>
+    <input type="range" id="vol" name="vol" value="1" min="1" max="5"
+        oninput="display.value=value" onchange="display.value=value">
+    <input type="text" id="display" value="1"
+        oninput="vol.value=value" onchange="vol.value=value">
+    </label>
+    <br><br>
+    <label for="numero">Escolha um numero
+        <br>
+        <input type="number" name="numero" id="numero" min="1" max="5" placeholder="Insira o número">
     </label>
 
-    <h1 id="d"></h1>
+    <h1 id="d">Número sorteado: <span id="result"></span></h1>
 
     <button onclick="sortear()" id="button">Sortear</button>
     
@@ -21,6 +30,9 @@
     <script>
 
         var nEscolhido = document.querySelector("#numero");
+        var nPSorteio = document.querySelector("#display");
+        var nVol = document.querySelector("#vol");
+        var result = document.querySelector("#result");
         
         document.querySelector("#button").disabled = true;
 
@@ -28,14 +40,14 @@
 
 
         function sortear() {
-            var numeroSorteio = 10;
+            var numeroSorteio = nPSorteio.value;
             
             novoEscolhido = parseInt(nEscolhido.value);
 
-            var nSorteado = Math.round(Math.random() * numeroSorteio);
+            var nSorteado = Math.ceil(Math.random() * numeroSorteio);
             console.log(nSorteado);
 
-            document.querySelector("#d").innerHTML = nSorteado;
+            result.innerHTML =  `${nSorteado}`;
             
             resultado(nSorteado, novoEscolhido);
         }
@@ -51,6 +63,9 @@
         function limpa (nEscolhido) {
 
             numero.value = "";
+            display.value = 1;
+            vol.value = 1;
+            result.value = "";
             document.querySelector("#button").disabled = true;
             }
 
